@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 这是spring AOC容器的核心配置文件，所有对象的创建以及关联的设置都是在 xml中来进行的。 -->
+
+    <!-- 盘子里边包含了三个苹果，在这里我们就要创建三个对象. -->
+    <!-- 我们应该能体会到Spring IoC容器第一个特点，可以将程序中写死的这些文本给它剥离出来，放到配置文件中。
+         因为配置文件是纯文本，所以在内容变化以后，我们并不需要对程序进行重新编译，它就可以生效了。 -->
+    <bean id="sweetApple" class="org.example.pojo.Apple">
+        <property name="title" value="红富士"></property>
+        <property name="origin" value="欧洲"></property>
+        <property name="color" value="红色"></property>
+    </bean>
+
+    <bean id="sourApple" class="org.example.pojo.Apple">
+        <property name="title" value="青苹果"></property>
+        <property name="origin" value="中亚"></property>
+        <property name="color" value="绿色"></property>
+    </bean>
+
+    <bean id="softApple" class="org.example.pojo.Apple">
+        <property name="title" value="金元帅"></property>
+        <property name="origin" value="中国"></property>
+        <property name="color" value="黄色"></property>
+    </bean>
+
+    <bean id="lily" class="org.example.pojo.Child">
+        <property name="name" value="马铭莉"/>
+        <property name="apple" ref="sweetApple"/>
+    </bean>
+
+    <bean id="andy" class="org.example.pojo.Child">
+        <property name="name" value="黄秋城"/>
+        <property name="apple" ref="sourApple" />
+    </bean>
+
+    <bean id="luna" class="org.example.pojo.Child">
+        <property name="name" value="张佳钰"/>
+        <property name="apple" ref="softApple" />
+    </bean>
+<!--    new-->
+    <bean id="apple1" class="org.example.pojo.Apple">
+
+    </bean>
+
+    <bean id="apple2" class="org.example.pojo.Apple">
+        <constructor-arg name="title" value="青苹果"></constructor-arg>
+        <constructor-arg name="origin" value="中亚"></constructor-arg>
+        <constructor-arg name="color" value="绿色"></constructor-arg>
+    </bean>
+    <bean id="apple4" class="org.example.pojo.AppleFactoryInstance" factory-method="createAweetApple"></bean>
+    <bean id="factoryInstance" class="org.example.pojo.AppleFactoryInstance"></bean>
+    <bean id="apple5" factory-bean="factoryInstance" factory-method="createSweetApple"></bean>
+</beans>
