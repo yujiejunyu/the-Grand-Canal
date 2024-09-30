@@ -1,0 +1,66 @@
+.parther {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    position: relative;
+    width: 45%;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    float: left;
+    object-fit: contain;
+}
+
+.container1 {
+    position: relative;
+    width: 45%;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    object-fit: contain;
+}
+
+.image-wrapper1 {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 45%;
+    height: 80%;
+    z-index: 10;
+}
+
+.image-wrapper2 {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 40%;
+    height: 80%;
+    z-index: 10;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: contain;
+}
+
+.drag-button {
+    /*left: 200px;*/
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    cursor: pointer;
+}
+.bottom-move{
+    position: absolute;
+    left: 500px;
+}
